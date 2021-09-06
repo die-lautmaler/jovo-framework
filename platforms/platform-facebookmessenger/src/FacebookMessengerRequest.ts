@@ -7,6 +7,7 @@ import {
   UnknownObject,
 } from '@jovotech/framework';
 import { FACEBOOK_LAUNCH_PAYLOAD } from '.';
+import { FacebookMessengerCapabilityType } from './FacebookMessengerDevice';
 import { MessagingData } from './interfaces';
 
 export class FacebookMessengerRequest extends JovoRequest {
@@ -49,12 +50,14 @@ export class FacebookMessengerRequest extends JovoRequest {
   getSessionData(): UnknownObject | undefined {
     return undefined;
   }
-
   getSessionId(): string | undefined {
     return undefined;
   }
-
   isNewSession(): boolean | undefined {
     return undefined;
+  }
+
+  getDeviceCapabilities(): FacebookMessengerCapabilityType[] | undefined {
+    return;
   }
 }

@@ -1,3 +1,7 @@
+---
+title: 'Jovo Handlers'
+excerpt: 'Learn more about Jovo Handlers, which are methods inside a Jovo Component that are responsible for handling a request and returning output.'
+---
 # Handlers
 
 Handlers are methods inside a [Jovo component](./components.md) that are responsible for handling a request and returning output.
@@ -343,12 +347,12 @@ Currently, they include:
 * [`if`](#if)
 #### Platforms
 
-You can specify that a handler is only responsible for specific platforms. The `platforms` property can be both a string or an array of strings with the names of each platform:
+You can specify that a handler is only responsible for specific platforms. The `platforms` property can be both a string or an array of strings with the names of each platform in camel case:
 
 ```typescript
 @Handle({
   // ...
-  platforms: [ 'Alexa', 'GoogleAssistant' ]
+  platforms: [ 'alexa', 'googleAssistant' ]
 })
 yourHandler() {
   // ...
@@ -362,7 +366,7 @@ import { Platforms } from '@jovotech/framework';
 
 // ...
 
-@Platforms('Alexa')
+@Platforms('alexa')
 yourHandler() {
   // ...
 }
@@ -371,7 +375,7 @@ yourHandler() {
 This decorator supports the same structure as the `platforms` property in `@Handle`. Additionally, it supports rest parameters, so you don't need to add an array for it to recognize multiple platforms:
 
 ```typescript
-@Platforms('Alexa', 'GoogleAssistant')
+@Platforms('alexa', 'googleAssistant')
 yourHandler() {
   // ...
 }
@@ -417,7 +421,7 @@ showMenu() {
 
 @Handle({
   intents: [ 'ShowMenuIntent' ],
-  platforms: [ 'Alexa' ]
+  platforms: [ 'alexa' ]
 })
 showMenuOnAlexa() {
   // ...

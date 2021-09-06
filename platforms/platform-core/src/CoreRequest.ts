@@ -5,6 +5,7 @@ import {
   OmitWhere,
   UnknownObject,
 } from '@jovotech/framework';
+import { CoreCapabilityType } from './CoreDevice';
 import { Context } from './interfaces';
 
 export class CoreRequest extends JovoRequest {
@@ -48,5 +49,9 @@ export class CoreRequest extends JovoRequest {
   }
   isNewSession(): boolean | undefined {
     return this.context?.session?.new;
+  }
+
+  getDeviceCapabilities(): CoreCapabilityType[] | undefined {
+    return this.context?.device?.capabilities;
   }
 }

@@ -1,3 +1,7 @@
+---
+title: 'Jovo Device'
+excerpt: 'Lear more about the Jovo Device class that allows you to retrieve device-specific features and capabilities.'
+---
 # Device
 
 The Jovo `$device` class allows you to retrieve device-specific features and capabilities.
@@ -90,26 +94,4 @@ this.$alexa.$device
 
 ## Under the Hood
 
-The `JovoDevice` class is abstract and has to be implemented by every platform with a few generic and a couple of specific functions. The platform fills the `capabilities` array on initiation.
-
-Here is an example for Alexa:
-
-```typescript
-setCapabilitiesFromRequest(): void {
-    const supportedInterfaces = this.jovo.$request.context?.System?.device?.supportedInterfaces;
-
-    if (supportedCapabilites?.includes(GoogleAssistantNativeCapability.Speech)) {
-        this.addCapability(Capability.Audio);
-    }
-
-    if (supportedCapabilites?.includes(GoogleAssistantNativeCapability.LongFormAudio)) {
-        this.addCapability(Capability.LongformAudio);
-    }
-    
-    if (supportedCapabilites?.includes(GoogleAssistantNativeCapability.RichResponse)) {
-        this.addCapability(Capability.Screen);
-    }
-// ...
-}
-```
-
+The `JovoDevice` class is abstract and has to be implemented by every platform with a few generic and a couple of specific functions. The platform fills the `capabilities` array on initiation by calling the `getDeviceCapabilities()`-method of the platform-specific request-class.
