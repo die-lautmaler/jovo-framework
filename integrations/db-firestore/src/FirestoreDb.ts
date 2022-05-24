@@ -26,22 +26,28 @@ export type FirestoreDbInitConfig = RequiredOnlyWhere<FirestoreDbConfig, 'collec
 export const JOVO_DEFAULT_COLLECTION_NAME = 'jovoUsers';
 
 export class FirestoreDb extends DbPlugin<FirestoreDbConfig> {
-  private readonly collection: CollectionReference;
+  readonly firestore: Firestore;
+  readonly collection: CollectionReference;
 
   constructor(config: FirestoreDbInitConfig) {
     super(config);
-    this.collection = new Firestore({
-      keyFilename: this.config.keyFileName,
+    this.firestore = new Firestore({
+      ...config,
       credentials: this.config.credentials
         ? {
             client_email: this.config.credentials.clientEmail,
             private_key: this.config.credentials.privateKey,
           }
         : undefined,
-    }).collection(this.config.collection);
+    });
+    this.collection = this.firestore.collection(this.config.collection);
   }
 
-  checkForCredentials(): void {
+  /**
+   * Checks for the presence of credentials to use for connecting
+   * to the Firestore database
+   */
+  private checkForCredentials(): void {
     if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && !this.config.keyFileName) {
       if (this.config.credentials) {
         if (!this.config.credentials.privateKey) {
@@ -82,8 +88,9 @@ export class FirestoreDb extends DbPlugin<FirestoreDbConfig> {
 
   mount(parent: HandleRequest): Promise<void> | void {
     super.mount(parent);
-    parent.middlewareCollection.use('before.request.start', () => {
+    parent.middlewareCollection.use('before.request.start', (jovo: Jovo) => {
       this.checkForCredentials();
+      jovo.$firestoreDb = new JovoFirestoreDb(this);
     });
   }
 
