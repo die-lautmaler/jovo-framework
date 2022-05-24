@@ -6,17 +6,25 @@ import {
   Jovo,
   JovoError,
   Logger,
+  OmitIndex,
   RequiredOnlyWhere,
 } from '@jovotech/framework';
-import { CollectionReference, DocumentSnapshot, Firestore } from '@google-cloud/firestore';
+import {
+  CollectionReference,
+  DocumentSnapshot,
+  Firestore,
+  Settings,
+} from '@google-cloud/firestore';
+import { JovoFirestoreDb } from './JovoFirestoreDb';
 
-export interface FirestoreDbConfig extends DbPluginConfig {
+export interface FirestoreDbConfig
+  extends DbPluginConfig,
+    Omit<OmitIndex<Settings>, 'credentials'> {
   collection: string;
   credentials?: {
     clientEmail: string;
     privateKey: string;
   };
-  keyFileName?: string;
 }
 
 // TODO: What do we actually need?
