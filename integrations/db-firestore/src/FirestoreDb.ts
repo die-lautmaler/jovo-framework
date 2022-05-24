@@ -27,10 +27,8 @@ export interface FirestoreDbConfig
   };
 }
 
-// TODO: What do we actually need?
 export type FirestoreDbInitConfig = RequiredOnlyWhere<FirestoreDbConfig, 'collection'>;
 
-/** Default database name in MongoDB. if no name was specified, 'test' is used. See https://docs.mongodb.com/manual/tutorial/getting-started/#getting-started */
 export const JOVO_DEFAULT_COLLECTION_NAME = 'jovoUsers';
 
 export class FirestoreDb extends DbPlugin<FirestoreDbConfig> {
