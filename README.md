@@ -1,18 +1,32 @@
+Dear community,
+
+After 8 years of working on this project, we had to make the difficult decision to close Jovo.
+
+What this means for you:
+- All Jovo packages will stay on npm in their current versions, so you can keep using them in your projects.
+- We will archive the Jovo organization on GitHub. This means that all repositories will be read-only. If community members want to make changes, they are invited to fork the repositories and publish packages under their organization.
+- We shut down our free Debugger service at the end of November 2024. However, we just open sourced it: https://github.com/jovotech/jovo-webhook-debugger (alternatively, people can use [ngrok](https://ngrok.com/) or one of our web chat widgets for local testing).
+- We shut down the Jovo website, but you can still access the documentation in the open source repositories, for example [here](./docs/).
+
+Thank you to everyone who was part of this community and who participated in creating Jovo!
+It was really great to meet so many of you over all these years and we're really happy that we've been able to work on an open source project for such a long time.
+We won't forget all the cool skills, actions, bots and apps that were created using Jovo, all the office hours, conferences, testing tuesdays... It was an honor!
+
+Thank you,
+Alex and Jan
+
+---
+
 # Jovo Framework: The React for Voice and Chat Apps
 
-> [**NEWS**: We just launched Jovo v4](https://www.jovo.tech/news/jovo-v4)
-
-[![Jovo Framework](https://www.jovo.tech/img/github-header.png)](https://www.jovo.tech)
+![Jovo Framework](https://www.jovo.tech/img/github-header.png)
 
 <p>
-<a href="https://www.jovo.tech" target="_blank">Website</a> -  <a href="https://www.jovo.tech/docs" target="_blank">Docs</a> - <a href="https://www.jovo.tech/marketplace" target="_blank">Marketplace</a> - <a href="https://github.com/jovotech/jovo-v4-template" target="_blank">Template</a>   
+<a href="https://github.com/jovotech/jovo-v4-template" target="_blank">Template</a> - <a href="https://github.com/jovotech/jovo-cli" target="_blank">CLI</a> - <a href="https://github.com/jovotech/jovo-inbox" target="_blank">Inbox</a>  
 </p>
 
 <p>
 <a href="https://www.npmjs.com/package/@jovotech/framework" target="_blank"><img src="https://badge.fury.io/js/@jovotech%2Fframework.svg"></a>      
-<a href="./.github/CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
-<a href="https://opencollective.com/jovo-framework" target="_blank"><img src="https://opencollective.com/jovo-framework/tiers/badge.svg"></a>
-<a href="https://twitter.com/intent/tweet?text=Jovo Framework: The React for Voice and Chat Apps @jovotech https://github.com/jovotech/jovo-framework/" target="_blank"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
 </p>
 
 Build conversational and multimodal experiences for the web, Alexa, Google Assistant, Messenger, Instagram, Google Business Messages, mobile apps, and more. Fully customizable and open source. Works with TypeScript and JavaScript.
@@ -36,17 +50,17 @@ export class LoveHatePizzaComponent extends BaseComponent {
 }
 ```
 
-- **Cross-platform**: Works on the [web](https://www.jovo.tech/marketplace/platform-web), voice platforms (like [Alexa](https://www.jovo.tech/marketplace/platform-alexa) and [Google Assistant](https://www.jovo.tech/marketplace/platform-googleassistant)), and chat platforms (like [Facebook Messenger](https://www.jovo.tech/marketplace/platform-facebookmessenger), [Instagram](https://www.jovo.tech/marketplace/platform-instagram), and [Google Business Messages](https://www.jovo.tech/marketplace/platform-googlebusiness)).
-- **Fast**: A [CLI](https://www.jovo.tech/docs/cli), local development, and browser-based debugging using the [Jovo Debugger](https://www.jovo.tech/docs/debugger).
+- **Cross-platform**: Works on the [web](./platforms/platform-web/), voice platforms like [Alexa](./platforms//platform-alexa) and [Google Assistant](./platforms//platform-googleassistant), and chat platforms like [Facebook Messenger](./platforms//platform-facebookmessenger), [Instagram](./platforms//platform-instagram), and [Google Business Messages](./platforms//platform-googlebusiness).
+- **Fast**: A [CLI](https://github.com/jovotech/jovo-cli), local development, and browser-based debugging using the [Jovo Debugger](./integrations/plugin-debugger/docs/README.md).
 - **Component-based**: Build robust experiences based on reusable components.
-- **Multimodal**: An [output template](https://www.jovo.tech/docs/output-templates) engine that translates structured content into voice, text, and visual responses.
-- **Extensible**: Build [Framework plugins](https://www.jovo.tech/docs/plugins), [CLI plugins](https://www.jovo.tech/docs/cli-plugins), and leverage many integrations from the [Jovo Marketplace](https://www.jovo.tech/marketplace).
-- **Integrated**: Works with many [NLU](https://www.jovo.tech/docs/nlu) and [CMS](https://www.jovo.tech/docs/cms) services.
-- **Robust**: Includes [staging](https://www.jovo.tech/docs/staging) and a [unit testing suite](https://www.jovo.tech/docs/unit-testing).
+- **Multimodal**: An [output template](./docs/output-templates.md) engine that translates structured content into voice, text, and visual responses.
+- **Extensible**: Build [Framework plugins](./docs/plugins.md), [CLI plugins](https://github.com/jovotech/jovo-cli/blob/v4/latest/docs/cli-plugins.md), and leverage many integrations from the [Jovo Marketplace](https://www.jovo.tech/marketplace).
+- **Integrated**: Works with many [NLU](./docs/nlu.md) and [CMS](./docs/cms.md) services.
+- **Robust**: Includes [staging](./docs/staging.md) and a [unit testing suite](./docs/unit-testing.md).
 
 ## Getting Started
 
-> Learn more in our [Getting Started Guide](https://www.jovo.tech/docs/getting-started).
+> Learn more in our [Getting Started Guide](./docs/README.md).
 
 Install the Jovo CLI:
 
@@ -66,28 +80,11 @@ Go into project directory and run the Jovo development server:
 # Go into project directory (replace <directory> with your folder)
 $ cd <directory>
 
-# Run local development server
-$ jovo run
+# Run local development server (default: port 3000)
+$ npm run start:dev
 
-# Press "." to open the Jovo Debugger
+# Since the discontinuation of the hosted Jovo Debugger, use a service like ngrok for local development with a public webhook URL
+$ ngrok http 3000
+
+# Example result: https://<ngrok-id>.ngrok-free.app/webhook 
 ```
-
-## Sponsors
-
-We're glad to be supported by respected companies and individuals in the voice-first and conversational AI industry. [See our Open Collective to learn more](https://opencollective.com/jovo-framework).
-
-**Gold Sponsors**
-
-<a href="https://opencollective.com/jovo-framework#section-contributors"><img src="https://opencollective.com/jovo-framework/tiers/gold-sponsors.svg?avatarHeight=50&width=600" /></a>
-
-**Silver Sponsors**
-
-<a href="https://opencollective.com/jovo-framework#section-contributors"><img src="https://opencollective.com/jovo-framework/tiers/silver-sponsors.svg?avatarHeight=50&width=600" /></a>
-
-**Bronze Sponsors**
-
-<a href="https://opencollective.com/jovo-framework#section-contributors"><img src="https://opencollective.com/jovo-framework/tiers/bronze-sponsors.svg?avatarHeight=35&width=600" /></a>
-
-Find all supporters in our [`BACKERS.md`](./BACKERS.md) file.
-
-> [Support Jovo on Open Collective](https://opencollective.com/jovo-framework)
