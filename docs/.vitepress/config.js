@@ -1,6 +1,7 @@
 export default {
   title: 'Jovo Framework',
   description: 'Documentation for Jovo Framework v4',
+  base: '/jovo-framework/',
   
   // Temporarily ignore dead links to allow build to complete
   ignoreDeadLinks: true,
@@ -8,7 +9,8 @@ export default {
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/README' }
+      { text: 'Guide', link: '/README' },
+      { text: 'GitHub', link: 'https://github.com/die-lautmaler/jovo-framework' }
     ],
     
     sidebar: [
@@ -28,7 +30,20 @@ export default {
           { text: 'Input', link: '/input' },
           { text: 'Output', link: '/output' }
         ]
+      },
+      {
+        text: 'Advanced',
+        items: [
+          { text: 'Plugins', link: '/plugins' },
+          { text: 'Platforms', link: '/platforms' },
+          { text: 'Deployment', link: '/deployment' },
+          { text: 'Testing', link: '/unit-testing' }
+        ]
       }
+    ],
+    
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/die-lautmaler/jovo-framework' }
     ]
   }
 }

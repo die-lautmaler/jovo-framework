@@ -7,7 +7,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /docs/
+      link: /installation
     - theme: alt
       text: View on GitHub
       link: https://github.com/die-lautmaler/jovo-framework
