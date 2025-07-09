@@ -3,7 +3,7 @@ layout: home
 hero:
   name: "Jovo Framework"
   text: "The Open Source Voice Layer"
-  tagline: "Build Voice Experiences for Alexa, Google Assistant, Samsung Bixby, Web Apps, and much more"
+  tagline: "Build Conversational AI  applications"
   actions:
     - theme: brand
       text: Get Started
