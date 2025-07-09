@@ -1,10 +1,10 @@
----
-title: 'Getting Started with the Jovo Framework'
-excerpt: 'Learn how to build your first project with Jovo v4, the framework that lets you create powerful conversational apps that work across voice and chat platforms like Alexa, Google Assistant, Facebook Messenger, the web, and more.'
-url: 'https://www.jovo.tech/docs/getting-started'
----
+# Jovo Framework
 
-# Getting Started
+> The Open Source Voice Layer
+
+Build Conversational AI applications that work across platforms.
+
+## Getting Started
 
 Learn how to build your first project with Jovo `v4`, the framework that lets you create powerful conversational apps that work across voice and chat platforms like Alexa, Google Assistant, Facebook Messenger, the web, and more.
 

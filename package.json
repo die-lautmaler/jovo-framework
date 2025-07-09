@@ -17,9 +17,9 @@
     "updateVersions:minor": "lerna version minor --yes --no-push --no-git-tag-version",
     "updateVersions:patch": "lerna version patch --yes --no-push --no-git-tag-version",
     "publishPackages": "lerna publish from-package --yes --no-verify-access",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:dev": "docsify serve docs",
+    "docs:build": "echo 'Docsify is client-side only, no build step required'",
+    "docs:preview": "docsify serve docs"
   },
   "author": "jovotech",
   "license": "Apache-2.0",
@@ -27,6 +27,7 @@
     "@types/jest": "^26.0.20",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "@typescript-eslint/parser": "^4.12.0",
+    "docsify-cli": "^4.4.4",
     "esbuild": "^0.13.8",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
@@ -37,7 +38,6 @@
     "rimraf": "^3.0.2",
     "ts-jest": "^29.0.4",
     "ts-toolbelt": "9.5.13",
-    "typescript": "~4.4.4",
-    "vitepress": "^1.6.3"
+    "typescript": "~4.4.4"
   }
 }
