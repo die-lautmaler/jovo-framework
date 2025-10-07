@@ -1,0 +1,40 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      # Group TypeScript and related tooling together
+      typescript:
+        patterns:
+          - "typescript"
+          - "@typescript-eslint/*"
+          - "ts-*"
+      # Group testing dependencies
+      testing:
+        patterns:
+          - "jest"
+          - "@types/jest"
+          - "ts-jest"
+      # Group linting and formatting
+      linting:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "prettier"
+      # Group build tools
+      build-tools:
+        patterns:
+          - "esbuild"
+          - "rimraf"
+          - "lerna"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
